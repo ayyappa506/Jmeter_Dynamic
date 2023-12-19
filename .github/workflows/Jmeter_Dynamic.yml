@@ -28,4 +28,4 @@ jobs:
         run: |
           # Replace 'path/to/your/test.jmx' with the actual path to your JMeter script
           # Replace '100' with the default number of vUsers if not provided as an input
-          ./jmeter -n -t ../../ Sample_Get_API_Calls_Dynamic.jmx -Jusers=${{ github.event.inputs.users || 100 }}
+          ./jmeter -n -t ../../Sample_Get_API_Calls_Dynamic.jmx -Jusers=${{ github.event.inputs.users || 100 }}
