@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout Repository		
         uses: actions/checkout@v2
 
       - name: Set up JDK
@@ -26,5 +26,6 @@ jobs:
 
       - name: Run JMeter Script
         run: |
-          cd apache-jmeter-5.4.1/bin
-          ./jmeter -n -t ../../Sample_Get_API_Calls_Dynamic.jmx -Jusers=${{ github.event.inputs.users || 5 }}
+          # Replace 'path/to/your/test.jmx' with the actual path to your JMeter script
+          # Replace '100' with the default number of vUsers if not provided as an input
+          jmeter -n -t Sample_Get_API_Calls_Dynamic.jmx -Jusers=${{ github.event.inputs.users || 100 }}
