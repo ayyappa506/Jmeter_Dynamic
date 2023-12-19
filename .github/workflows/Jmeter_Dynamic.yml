@@ -27,7 +27,7 @@ jobs:
       - name: Run JMeter Script
         run: |
           cd apache-jmeter-5.4.1/bin
-          jmeter -n -t Sample_Get_API_calls_dynamic.jmx -Jusers=${{ github.event.inputs.users || 5 }} -Jduration=${{ github.event.inputs.duration || 5 }} -Jrampuptime=${{ github.event.inputs.rampuptime || 5 }}
+          jmeter -n -t Sample_Get_API_Calls_dynamic.jmx.jmx -Jusers=${{ github.event.inputs.users || 5 }} -Jduration=${{ github.event.inputs.duration || 5 }} -Jrampuptime=${{ github.event.inputs.rampuptime || 5 }}
 
       - name: Upload Results
         uses: actions/upload-artifact@v2
