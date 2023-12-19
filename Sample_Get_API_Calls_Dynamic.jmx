@@ -28,19 +28,19 @@
       <hashTree/>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
-          <elementProp name="Vusers" elementType="Argument">
-            <stringProp name="Argument.name">Vusers</stringProp>
+          <elementProp name="users" elementType="Argument">
+            <stringProp name="Argument.name">users</stringProp>
             <stringProp name="Argument.value">${__P(users,5)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="TestDurtion" elementType="Argument">
-            <stringProp name="Argument.name">TestDurtion</stringProp>
-            <stringProp name="Argument.value">${__P(TESTDURATION,180)}</stringProp>
+          <elementProp name="duration" elementType="Argument">
+            <stringProp name="Argument.name">duration</stringProp>
+            <stringProp name="Argument.value">${__P(duration,180)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="RampupTime" elementType="Argument">
-            <stringProp name="Argument.name">RampupTime</stringProp>
-            <stringProp name="Argument.value">${__P(RAMPUPTIME,1)}</stringProp>
+          <elementProp name="rampuptime" elementType="Argument">
+            <stringProp name="Argument.name">rampuptime</stringProp>
+            <stringProp name="Argument.value">${__P(rampuptime,10)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -53,9 +53,9 @@
           <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">${users}</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">${RampupTime}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${rampuptime}</stringProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
-        <stringProp name="ThreadGroup.duration">${TestDurtion}</stringProp>
+        <stringProp name="ThreadGroup.duration">${duration}</stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </ThreadGroup>
