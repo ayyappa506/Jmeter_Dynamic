@@ -1,0 +1,29 @@
+name: Run JMeter Script
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  run_jmeter:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository		
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Download JMeter
+        run: |
+          wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.1.tgz
+          tar -xzf apache-jmeter-5.4.1.tgz
+
+      - name: Run JMeter Script
+        run: |
+          ./jmeter -n -t ../../Sample_Get_API_Calls_Direct.jmx -Jusers=${{ github.event.inputs.USERS || 5 }} -l test-results.jtl
