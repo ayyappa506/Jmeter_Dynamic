@@ -23,7 +23,13 @@ jobs:
         run: |
           wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.1.tgz
           tar -xzf apache-jmeter-5.4.1.tgz
-
+		  
       - name: Run JMeter Script
         run: |
-          ./jmeter -n -t ../../Sample_Get_API_Calls_Direct.jmx -Jusers=${{ github.event.inputs.USERS || 5 }} -l test-results.jtl
+          cd apache-jmeter-5.4.1/bin
+          ./jmeter -n -t ../../Sample_Get_API_Calls_Direct.jmx -Jusers=${{ github.event.inputs.USERS || 5 }}
+      - name: Upload Results
+        uses: actions/upload-artifact@v2
+        with:
+          name: jmeter-results
+          path: test-results.jtl
