@@ -31,4 +31,10 @@ jobs:
       - name: Run JMeter Script
         run: |
           cd apache-jmeter-5.4.1/bin
-          ./jmeter -n -t ../../Sample_Get_API_Calls_Dynamic.jmx -Jusers=${{env.Jusers}} -Jduration=${{env.Jduration}} -Jrampuptime=${{env.Jrampuptime}}
+          ./jmeter -n -t ../../Sample_Get_API_Calls_Dynamic.jmx -Jusers=${{env.Jusers}} -Jduration=${{env.Jduration}} -Jrampuptime=${{env.Jrampuptime}} -l ../../test-results.jtl 
+
+      - name: Upload Results
+        uses: actions/upload-artifact@v2
+        with:
+          name: jmeter-results
+          path: ../../test-results.jtl
