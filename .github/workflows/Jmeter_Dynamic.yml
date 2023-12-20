@@ -8,7 +8,9 @@ on:
 jobs:
   run_jmeter:
     runs-on: ubuntu-latest
-
+    env: 
+      Jusers: 10
+      
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -27,10 +29,4 @@ jobs:
       - name: Run JMeter Script
         run: |
           cd apache-jmeter-5.4.1/bin
-          ./jmeter -n -t ../../Sample_Get_API_Calls_Dynamic.jmx -Jusers=${{ github.event.inputs.users || 5 }} -Jduration=${{ github.event.inputs.duration || 5 }} -Jrampuptime=${{ github.event.inputs.rampuptime || 5 }}
-
-      - name: Upload Results
-        uses: actions/upload-artifact@v2
-        with:
-          name: jmeter-results
-          path: test-results.jtl
+          ./jmeter -n -t ../../Sample_Get_API_Calls_Dynamic.jmx -Jtherads=${{env.Jusers}}
