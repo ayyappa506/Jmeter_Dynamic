@@ -9,7 +9,7 @@ jobs:
   run_jmeter:
     runs-on: ubuntu-latest
     env: 
-      Jduration: 10
+      Jduration: 300
       
     steps:
       - name: Checkout Repository
